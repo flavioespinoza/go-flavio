@@ -10,7 +10,7 @@
     "test:esm": "node -r esm test/esm.test.js",
     "test:cjs": "node test/require.test.js",
     "test": "npm run test:esm && npm run test:esm",
-    "balls": "node ./balls.js"
+    "balls": "node ./src/balls.js"
   },
   "repository": {
     "type": "git",
