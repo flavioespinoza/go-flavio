@@ -1,0 +1,50 @@
+{
+  "name": "go_flavio",
+  "version": "1.0.0",
+  "description": "X-Team Challenge to Build an App in Go and Vue",
+  "main": "index.js",
+  "types": "src/index.d.ts",
+  "scripts": {
+    "go": "node ./src/go_flavio.js",
+    "build": "tsc",
+    "test:esm": "node -r esm test/esm.test.js",
+    "test:cjs": "node test/require.test.js",
+    "test": "npm run test:esm && npm run test:esm"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/flavioespinoza/go-flavio.git"
+  },
+  "keywords": [
+    "go",
+    "golang",
+    "vue",
+    "flavio",
+    "x-team"
+  ],
+  "author": "Flavio Espinoza <flavio.espinoza@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/flavioespinoza/go-flavio/issues"
+  },
+  "homepage": "https://github.com/flavioespinoza/go-flavio#readme",
+  "devDependencies": {
+    "@flavioespinoza/log_log": "^1.0.68",
+    "datedash": "^1.0.49",
+    "@types/colors": "^1.2.1",
+    "@types/lodash": "^4.14.123",
+    "colors": "^1.3.3",
+    "docdown": "^0.7.3",
+    "esm": "^3.2.18",
+    "lodash": "^4.17.11",
+    "markdown-doctest": "^0.9.1",
+    "ts-jest": "^23.10.5",
+    "ts-node": "^8.0.3",
+    "ts-node-dev": "^1.0.0-pre.32",
+    "tslint": "^5.12.1",
+    "tslint-config-airbnb": "^5.11.1",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-react": "^3.6.0",
+    "typescript": "^3.3.3"
+  }
+}
