@@ -1,10 +1,10 @@
-// Nested Package
+// Package greeting is a nested package
 package greeting
 
 // Exported
 const  (
-	WelcomeText = "Hellow, goflavio.go --> main()"
-    MorningText = "Good Morning"
+	WelcomeText = "Hello, goflavio.go --> main()"
+	MorningText = "Good Morning"
 	EveningText = "Good Evening"
 )
 
