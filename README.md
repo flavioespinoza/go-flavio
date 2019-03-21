@@ -22,11 +22,11 @@ goflavio.go
 package main
 
 import (
-	"fmt"
-	. "github.com/logrusorgru/aurora"
+    "fmt"
+    . "github.com/logrusorgru/aurora"
     "github.com/flavioespinoza/go-flavio/numbers"
     "github.com/flavioespinoza/go-flavio/strings"
-    
+
     "github.com/flavioespinoza/go-flavio/strings/greetings" 
 	greet "strings"// Nested package as alias 'greet'
 )
