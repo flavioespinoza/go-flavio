@@ -1,13 +1,3 @@
-# go_flavio
-
-## X-Team Challenge to Build an App in Go and Vue
-
-**Start Time:** Tuesday, 19 Mar 2019 @ 11:05 AM (MST)
-
-## Baisc comparisons to TypeScript
-
-```go
-
 // package <name>   
 // Required
 package main
@@ -65,6 +55,3 @@ func sqRootAdd(n float64, a float64) (result float64) {
 	result = math.Sqrt(n) + a
 	return result
 }
-
-
-```
