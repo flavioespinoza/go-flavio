@@ -28,7 +28,7 @@ import (
     "github.com/flavioespinoza/go-flavio/strings"
 
     "github.com/flavioespinoza/go-flavio/strings/greetings" 
-	greet "strings"// Nested package as alias 'greet'
+    greet "strings"// Nested package as alias 'greet'
 )
 
 var _log = fmt.Println
