@@ -2,7 +2,7 @@
 package greeting
 
 // Exported
-const  (
+const (
 	WelcomeText = "Hello, goflavio.go --> main()"
 	MorningText = "Good Morning"
 	EveningText = "Good Evening"

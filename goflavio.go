@@ -2,23 +2,34 @@ package main
 
 import (
 	"fmt"
-	. "github.com/logrusorgru/aurora"
+	"github.com/logrusorgru/aurora"
 	"github.com/flavioespinoza/go-flavio/numbers"
-	"github.com/flavioespinoza/go-flavio/strings"	
-
+	"github.com/flavioespinoza/go-flavio/strings"
 	"github.com/flavioespinoza/go-flavio/strings/greetings" 
 	greet "strings"
 )
 
+// Syntax for console logs
 var _log = fmt.Println
+
+// Color options for logs
+var _black = aurora.Black
+var _white = aurora.Gray
+var _cyan = aurora.Cyan
+var _yellow = aurora.Brown
+var _magenta = aurora.Magenta
+var _blue = aurora.Blue
+var _red = aurora.Red
+var _green = aurora.Green
 
 func main() {
 
-	_log(Brown("number.IsPrime(19)"), Cyan(numbers.IsPrime(19)))
+	_log(_yellow("number.IsPrime(19)"), _cyan(numbers.IsPrime(19)))
 
-	_log(Magenta(greeting.WelcomeText))
+	_log(_magenta(greeting.WelcomeText))
 
 	_log(strings.Reverse("flavioespinoza"))
 
 	_log(greet.Count("Go is Awesome. I love Go", "Go"))
+	
 }
