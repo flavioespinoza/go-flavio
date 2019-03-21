@@ -1,17 +1,17 @@
 package main
 
 import (
-	"fmt"
+	"log"
 	"flag"
 	"html/template"
-	"log"
 	"net/http"
 	"github.com/gorilla/websocket"
 	"github.com/logrusorgru/aurora"
 )
 
 // Syntax for console logs
-var _log = fmt.Println
+var _log = log.Println
+var _logF = log.Printf
 
 // Color options for logs
 var _black = aurora.Black
@@ -30,21 +30,20 @@ var upgrader = websocket.Upgrader{} // use default options
 func echo(w http.ResponseWriter, r *http.Request) {
 	c, err := upgrader.Upgrade(w, r, nil)
 	if err != nil {
-		log.Print("upgrade:", err)
+		_log("upgrade:", err)
 		return
 	}
 	defer c.Close()
 	for {
 		mt, message, err := c.ReadMessage()
 		if err != nil {
-			log.Println("read:", err)
+			_log(_red("read:"), _yellow(err))
 			break
 		}
-		_log(_yellow("message recieved"))
-		log.Printf("recv: %s", message)
+		_logF("recv: %s", _cyan(message))
 		err = c.WriteMessage(mt, message)
 		if err != nil {
-			log.Println("write:", err)
+			_log(_red("write:"), _yellow(err))
 			break
 		}
 	}
