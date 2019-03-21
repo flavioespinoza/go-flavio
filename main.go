@@ -7,26 +7,39 @@ package main
 import (
 	"fmt"
 	"math"
+	
 )
 
 // Executable func: Same name as package
 // Required
 func main() {
-	_log("hello flavio")
-	addNoReturn(4, 6) // No return value
+	
+	_log("Hello Flavio!")
+	// => Hello Flavio!
+	
+	addNoReturn(4, 6) 
+	// No return value
+	// console log show 10, but this is executed 
+	// inside of the `addNoReturn` function
+
 	_log(addWithReturn(4, 7))
+	// => 11
+
 	_log(sqRoot(16))
+	// => 4
+
 	_log(sqRootAdd(16, 1))
-	_log("Hello World!")
+	// => 5
+	
+	_log(multipleReturns(25, 5))
+	// => 30 20 5 125
 	
 }
 
 // NOTE: func() hoist like expressive functions in TypeScript
 
 // My sugar syntax for console logs
-func _log(item interface{}) {
-	fmt.Println(item)
-}
+var _log = fmt.Println
 
 // Argument Types are required similar to TypeScript
 func addNoReturn(x int, y int) {
@@ -54,4 +67,13 @@ func sqRoot2(n float64) (float64) {
 func sqRootAdd(n float64, a float64) (result float64) {
 	result = math.Sqrt(n) + a
 	return result
+}
+
+// Multiple return values
+func multipleReturns(num int, operator int) (add int, subtract int, divide int, multiply int) {
+	add = num + operator
+	subtract = num - operator
+	divide = num / operator
+	multiply = num * operator
+	return
 }
