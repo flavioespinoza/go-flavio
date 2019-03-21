@@ -1,12 +1,27 @@
 package main
 
 import (
+	"fmt"
 	"flag"
 	"html/template"
 	"log"
 	"net/http"
 	"github.com/gorilla/websocket"
+	"github.com/logrusorgru/aurora"
 )
+
+// Syntax for console logs
+var _log = fmt.Println
+
+// Color options for logs
+var _black = aurora.Black
+var _white = aurora.Gray
+var _cyan = aurora.Cyan
+var _yellow = aurora.Brown
+var _magenta = aurora.Magenta
+var _blue = aurora.Blue
+var _red = aurora.Red
+var _green = aurora.Green
 
 var addr = flag.String("addr", "localhost:7001", "http service address")
 
@@ -25,6 +40,7 @@ func echo(w http.ResponseWriter, r *http.Request) {
 			log.Println("read:", err)
 			break
 		}
+		_log(_yellow("message recieved"))
 		log.Printf("recv: %s", message)
 		err = c.WriteMessage(mt, message)
 		if err != nil {
