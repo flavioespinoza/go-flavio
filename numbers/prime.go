@@ -8,6 +8,6 @@ func IsPrime(num int) bool {
         if num%i == 0 {
             return false
         }
-	}
+    }
     return num > 1
 }
