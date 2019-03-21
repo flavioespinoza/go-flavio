@@ -12,7 +12,7 @@ import (
 
 // Syntax for console logs
 var _log = log.Println
-var _logF = log.Printf
+var _logByte = log.Printf
 
 // Color options for logs
 var _black = aurora.Black
@@ -36,36 +36,46 @@ var addr = flag.String("addr", host, "http service address")
 var upgrader = websocket.Upgrader{} // use default options
 
 // Listen for request
-func echo(res http.ResponseWriter, req *http.Request) {
-	connection, err := upgrader.Upgrade(res, req, nil)
-	if err != nil {
-		_log(_red("upgrade:"), _yellow(err))
+func onMessage(res http.ResponseWriter, req *http.Request) {
+	var connection, connErr = upgrader.Upgrade(res, req, nil)
+
+	// Connection Error
+	if connErr != nil {
+		_log(_red("upgrader.Upgrade() Error:"), _yellow(connErr))
 		return
 	}
 	defer connection.Close()
+
+	// Connection Message	
 	for {
-		mt, message, err := connection.ReadMessage()
-		if err != nil {
-			_log(_red("read:"), _yellow(err))
+		var msgType, msgByte, errRead = connection.ReadMessage()
+		
+		// Connection Read Error
+		if errRead != nil {
+			_log(_red("connection.ReadMessage() Error:"), _yellow(errRead))
 			break
 		}
-		_logF("recv: %s", _cyan(message))
-		err = connection.WriteMessage(mt, message)
-		if err != nil {
-			_log(_red("write:"), _yellow(err))
+
+		// Connection Message Recieved		
+		_logByte("connection.ReadMessage() Recieved: %s", _cyan(msgByte))
+
+		// Connection Write Error
+		var errWrite = connection.WriteMessage(msgType, msgByte)
+		if errWrite != nil {
+			_log(_red("connection.WriteMessage() Error:"), _yellow(errWrite))
 			break
 		}
 	}
 }
 
 func home(res http.ResponseWriter, req *http.Request) {
-	homeTemplate.Execute(res, "ws://"+req.Host+"/echo")
+	homeTemplate.Execute(res, "ws://"+req.Host+"/onMessage")
 }
 
 func main() {
 	flag.Parse()
 	log.SetFlags(0)
-	http.HandleFunc("/echo", echo)
+	http.HandleFunc("/onMessage", onMessage)
 	http.HandleFunc("/", home)
 	log.Fatal(http.ListenAndServe(*addr, nil))
 }
