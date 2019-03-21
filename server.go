@@ -1,6 +1,7 @@
 package main
 
 import (
+	"strconv"
 	"log"
 	"flag"
 	"html/template"
@@ -23,14 +24,16 @@ var _blue = aurora.Blue
 var _red = aurora.Red
 var _green = aurora.Green
 
-var addr = flag.String("addr", "localhost:7001", "http service address")
+var port = 7001
+var host = "localhost:" + strconv.Itoa(port)
+var addr = flag.String("addr", host, "http service address")
 
 var upgrader = websocket.Upgrader{} // use default options
 
-func echo(w http.ResponseWriter, r *http.Request) {
-	c, err := upgrader.Upgrade(w, r, nil)
+func echo(res http.ResponseWriter, req *http.Request) {
+	c, err := upgrader.Upgrade(res, req, nil)
 	if err != nil {
-		_log("upgrade:", err)
+		_log(_red("upgrade:"), _yellow(err))
 		return
 	}
 	defer c.Close()
