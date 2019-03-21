@@ -5,8 +5,9 @@ import (
 	. "github.com/logrusorgru/aurora"
 	"github.com/flavioespinoza/go-flavio/numbers"
 	"github.com/flavioespinoza/go-flavio/strings"	
-	"github.com/flavioespinoza/go-flavio/strings/greetings" // Importing a nested package
-	str "strings"	// Package Alias
+
+	"github.com/flavioespinoza/go-flavio/strings/greetings" 
+	greet "strings"
 )
 
 var _log = fmt.Println
@@ -19,5 +20,5 @@ func main() {
 
 	_log(strings.Reverse("flavioespinoza"))
 
-	_log(str.Count("Go is Awesome. I love Go", "Go"))
+	_log(greet.Count("Go is Awesome. I love Go", "Go"))
 }
