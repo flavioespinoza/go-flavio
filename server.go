@@ -24,27 +24,33 @@ var _blue = aurora.Blue
 var _red = aurora.Red
 var _green = aurora.Green
 
+// Client HTML template
+var homeTemplate = template.Must(template.ParseFiles("templates/client.html"))
+
+// Port, Host and Http Sevice Address
 var port = 7001
-var host = "localhost:" + strconv.Itoa(port)
+var host = "127.0.0.1:" + strconv.Itoa(port)
 var addr = flag.String("addr", host, "http service address")
 
+// WebSocket Options
 var upgrader = websocket.Upgrader{} // use default options
 
+// Listen for request
 func echo(res http.ResponseWriter, req *http.Request) {
-	c, err := upgrader.Upgrade(res, req, nil)
+	connection, err := upgrader.Upgrade(res, req, nil)
 	if err != nil {
 		_log(_red("upgrade:"), _yellow(err))
 		return
 	}
-	defer c.Close()
+	defer connection.Close()
 	for {
-		mt, message, err := c.ReadMessage()
+		mt, message, err := connection.ReadMessage()
 		if err != nil {
 			_log(_red("read:"), _yellow(err))
 			break
 		}
 		_logF("recv: %s", _cyan(message))
-		err = c.WriteMessage(mt, message)
+		err = connection.WriteMessage(mt, message)
 		if err != nil {
 			_log(_red("write:"), _yellow(err))
 			break
@@ -63,5 +69,3 @@ func main() {
 	http.HandleFunc("/", home)
 	log.Fatal(http.ListenAndServe(*addr, nil))
 }
-
-var homeTemplate = template.Must(template.ParseFiles("templates/client.html"))
