@@ -11,3 +11,4 @@ func IsPrime(num int) bool {
     }
     return num > 1
 }
+
