@@ -17,7 +17,7 @@ go run goflavio.go
 ```
 
 goflavio.go
-```go
+```golang
 
 // package <name>   
 // Required
