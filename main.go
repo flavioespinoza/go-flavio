@@ -7,7 +7,6 @@ package main
 import (
 	"fmt"
 	"math"
-	
 )
 
 // Executable func: Same name as package

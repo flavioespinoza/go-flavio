@@ -1,2 +1,2 @@
-require = require('esm')(module /*, options*/)
-module.exports = require('./src/main.js')
+console.log(__dirname)
+
