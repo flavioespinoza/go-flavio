@@ -1,11 +1,11 @@
 package main
 
 import (
-	"strconv"
-	"log"
 	"flag"
 	"html/template"
+	"log"
 	"net/http"
+	"strconv"
 	"github.com/gorilla/websocket"
 	"github.com/logrusorgru/aurora"
 )
@@ -46,17 +46,17 @@ func onMessage(res http.ResponseWriter, req *http.Request) {
 	}
 	defer connection.Close()
 
-	// Connection Message	
+	// Connection Message
 	for {
 		var msgType, msgByte, errRead = connection.ReadMessage()
-		
+
 		// Connection Read Error
 		if errRead != nil {
 			_log(_red("connection.ReadMessage() Error:"), _yellow(errRead))
 			break
 		}
 
-		// Connection Message Recieved		
+		// Connection Message Recieved
 		_logByte("connection.ReadMessage() Recieved: %s", _cyan(msgByte))
 
 		// Connection Write Error
