@@ -23,3 +23,5 @@ go run client.go
 ```
 
 Open http://localhost:7001 in the Chrome, Firefox or Safari and follow the instructions on the page.
+
+> Added id_rsa.pub ssh key for github.com deploys
