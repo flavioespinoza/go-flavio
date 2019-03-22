@@ -1,0 +1,12 @@
+NAME:   elasticsearch-1
+LAST DEPLOYED: Fri Mar 22 12:39:25 2019
+NAMESPACE: balls
+STATUS: DEPLOYED
+RESOURCES:
+NAME                         DATA    AGE
+elasticsearch-1-configmap    2       0s
+NAME                               CLUSTER-IP     EXTERNAL-IP  PORT(S)            AGE
+elasticsearch-1-elasticsearch-svc  10.15.243.254  <none>       9200/TCP,9300/TCP  0s
+NAME                           KIND
+elasticsearch-1-elasticsearch  StatefulSet.v1beta2.apps
+elasticsearch-1  Application.v1beta1.app.k8s.io
