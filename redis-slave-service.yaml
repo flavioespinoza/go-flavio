@@ -13,5 +13,3 @@ spec:
     app: redis
     role: slave
     tier: backend
-
-    

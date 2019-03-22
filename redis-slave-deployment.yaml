@@ -33,5 +33,3 @@ spec:
           # value: env
         ports:
         - containerPort: 6379
-
-        
