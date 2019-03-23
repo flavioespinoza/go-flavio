@@ -1,27 +1,36 @@
 # go_flavio
 
-### X-Team Challenge to Build an App in Go and Vue
+#### X-Team Challenge to Build an App in Go and Vue
+> **Start Time:** Tuesday, 19 Mar 2019 @ 11:05 AM (MST)
 
-**Start Time:** Tuesday, 19 Mar 2019 @ 11:05 AM (MST)
+---
 
-## WebSocket Server with Client
+## Elasticsearch instance
+> Elasticsearch instance deployed on an Ubuntu 18.04 webserver
 
-The server echoes messages sent to it. The client sends a message every second and prints all messages received.
+> The Ubuntu web server uses Nginx as a reverse proxy inside of a Docker Container.
 
-### You will need 2 separate terminals to run this example 
+> The Docker container is deployed inside of a Kubernetes cluster on Google Cloud
 
-Start the server in terminal 1:
+<img src="assets/img/elasticsearch-dashboard.png" />
 
+---
+
+## Go websocket with html client
+
+> The server echoes messages sent to it and returns to client.
+
+Run WebSocket example locally.
 ```bash {.copy-clip}
 go run server.go
 ```
-
-Next, start the client in terminal 2:
-
-```bash {.copy-clip}
-go run client.go
-```
-
 Open http://localhost:7001 in the Chrome, Firefox or Safari and follow the instructions on the page.
 
-> Added id_rsa.pub ssh key for github.com deploys
+--- 
+
+TODO:
+- [ ] : ssl certificates
+
+    ```bash {.copy-clip}
+    certbot --nginx -d escanner.co
+    ```

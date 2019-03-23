@@ -43,7 +43,6 @@ Configure `gcloud` as a `docker` credential helper:
 gcloud auth configure-docker
 ```
 
-
 ### Install Application
 
 //TODO: Add install instructions
@@ -62,5 +61,4 @@ helm template chart/elasticsearch \
   --set elasticsearch.initImage=$IMAGE_INIT \
   --set elasticsearch.image=$IMAGE_ELASTICSEARCH \
   --set elasticsearch.replicas=$REPLICAS > "${APP_INSTANCE_NAME}_manifest.yaml"
-
 ```
