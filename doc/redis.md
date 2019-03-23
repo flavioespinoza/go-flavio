@@ -1,11 +1,23 @@
-# Redis deployment
+# Redis deployment on Kubernetes cluster
 
+---
+
+## Setup
+
+**Clone GitHub repository**
+
+```bash {.copy-clip}
+git clone https://github.com/kubernetes/examples
+```
+```bash {.copy-clip}
+cd examples/guestbook
+```
 
 **Setup gcloud and kubectl credentials**
 ```bash {.copy-clip}
 gcloud container clusters \
-    get-credentials <cluster-name> \
-    --zone <cluster-zone>
+    get-credentials `<your-cluster-name>` \
+    --zone `<your-cluster-zone>`
 ```
 
 ## Master Deployment
