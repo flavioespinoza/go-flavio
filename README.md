@@ -5,14 +5,12 @@
 
 ---
 
-## Elasticsearch instance
-> Elasticsearch instance deployed on an Ubuntu 18.04 webserver
+## Elasticsearch and Kibana
 
-> The Ubuntu web server uses Nginx as a reverse proxy inside of a Docker Container.
+> Deployed @ https://escanner.co
 
-> The Docker container is deployed inside of a Kubernetes cluster on Google Cloud
+> Elasticsearch instance and Kibana deployed on an Ubuntu 18.04 webserver
 
-<img src="assets/img/elasticsearch-dashboard.png" />
 
 ---
 
@@ -29,7 +27,7 @@ Open http://localhost:7001 in the Chrome, Firefox or Safari and follow the instr
 --- 
 
 TODO:
-- [ ] : ssl certificates
+- [x] : ssl certificates
 
     ```bash {.copy-clip}
     certbot --nginx -d escanner.co
