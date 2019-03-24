@@ -23,3 +23,12 @@ go run client.go
 ```
 
 Open http://localhost:7001 in the Chrome, Firefox or Safari and follow the instructions on the page.
+
+
+## Install java
+
+[ubuntu install java](https://www.digitalocean.com/community/tutorials/how-to-install-java-with-apt-on-ubuntu-18-04)
+
+```bash {.copy-clip}
+JAVA_HOME="/usr/lib/jvm/java-11-openjdk-amd64/bin/"
+```

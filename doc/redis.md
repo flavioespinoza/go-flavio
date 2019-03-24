@@ -20,6 +20,13 @@ gcloud container clusters \
     --zone `<your-cluster-zone>`
 ```
 
+### Example 
+```bash {.copy-clip}
+gcloud container clusters \
+    get-credentials cluster-f \
+    --zone us-central1-a
+```
+
 ## Master Deployment
 > redis-master-deployment.yaml
 
