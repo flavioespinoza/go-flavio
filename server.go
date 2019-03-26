@@ -28,7 +28,7 @@ var _green = aurora.Green
 var homeTemplate = template.Must(template.ParseFiles("templates/client.html"))
 
 // Port, Host and Http Sevice Address
-var port = 7001
+var port = 6001
 var host = "127.0.0.1:" + strconv.Itoa(port)
 var addr = flag.String("addr", host, "http service address")
 

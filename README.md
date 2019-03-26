@@ -1,7 +1,8 @@
 # go_flavio
 
 #### X-Team Challenge to Build an App in Go and Vue
-> **Start Time:** Tuesday, 19 Mar 2019 @ 11:05 AM (MST)
+**Start Time:** Tuesday, 19 Mar 2019 @ 11:05 AM (MST)
+
 
 ---
 
@@ -10,7 +11,6 @@
 > Deployed @ https://escanner.co
 
 > Elasticsearch instance and Kibana deployed on an Ubuntu 18.04 webserver
-
 
 ---
 
@@ -22,7 +22,7 @@ Run WebSocket example locally.
 ```bash {.copy-clip}
 go run server.go
 ```
-Open http://localhost:7001 in the Chrome, Firefox or Safari and follow the instructions on the page.
+Open http://localhost:6001 in the Chrome, Firefox or Safari and follow the instructions on the page.
 
 --- 
 
