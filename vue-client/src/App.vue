@@ -5,22 +5,7 @@
       credentials="gBgUqs2tV:3456f3bf-ea9e-4ebc-9c93-08eb13e5c87c"
     >
       <div class="navbar">
-        <h2><span class="logo">Bs</span>BookSearch</h2>
-        <DataSearch
-          componentId="title"
-          iconPosition="right"
-          :dataField="[
-            'original_title',
-            'original_title.search',
-            'authors.search',
-            'authors.raw',
-            'authors.autosuggest',
-            'authors'
-          ]"
-          className="data-search"
-          :showClear="false"
-          placeholder="Search for book"
-        />
+        <h2><span class="logo">Es</span>BookSearch</h2>
       </div>
 
       <button class="toggle" @click="switchContainer">
