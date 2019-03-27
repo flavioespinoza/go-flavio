@@ -1,4 +1,4 @@
-# vue-client
+# vue-go-flavio
 
 ## Project setup
 ```
