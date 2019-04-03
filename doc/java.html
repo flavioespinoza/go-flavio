@@ -297,16 +297,21 @@ html body .md-block-quote li {
   margin-left: 40px;
 }
 html body .md-label {
-  margin-bottom: -0.5em;
+  margin-bottom: -0.4em;
 }
 a html body .md-label {
   margin-bottom: 0;
 }
+html body .md-pink {
+  color: hotpink;
+  font-weight: bold;
+}
 html body .md-label-output {
-  margin-left: 24px;
+  margin-left: 2em;
 }
 html body .md-key {
   background-color: pink;
+  color: black;
   padding: 0 0.5em 0.15em;
   font-weight: 500;
 }
@@ -340,7 +345,30 @@ html body .language-bash {
   overflow: auto;
 }
 html body .md-output {
-  margin-left: 24px;
+  margin-left: 2em;
+}
+html body .mb4 {
+  margin-bottom: 0.25em;
+}
+html body .copy-paste-icon {
+  width: 20px;
+  height: 20px;
+  margin-bottom: -0.25em;
+  background-color: transparent;
+}
+html body .md-cmd-block {
+  position: relative;
+  overflow: hidden;
+}
+html body .md-cmd-block .copy-clip-icon {
+  position: absolute;
+  right: 0.125em;
+  top: 0.525em;
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  z-index: 100;
+  padding: 0.15em;
 }
  
       </style>
@@ -349,38 +377,149 @@ html body .md-output {
       <div class="mume markdown-preview   ">
       <h1 class="mume-header" id="add-java-to-ubuntu-1804">Add Java to Ubuntu 18.04</h1>
 
-<div class="md-label">Update Ubuntu</div>
-<pre data-role="codeBlock" data-info="bash {.copy-clip}" class="language-bash copy-clip"><span class="token function">sudo</span> <span class="token function">apt</span> update
-</pre><div class="md-label">Check if JAVA is installed</div>
+<hr>
+<h1 class="mume-header" id="overview">Overview</h1>
+
+<blockquote>
+<p>This gives a high level overview of this installation guide and how to follow along</p>
+</blockquote>
+<h4 class="mume-header" id="commands-and-outputs">Commands and Outputs</h4>
+
+<div class="md-label">The code blocks with the <img src="copy-paste-icon.png" class="copy-paste-icon"> icon are <span class="md-key">Commands</span> you can <span class="md-key">Copy and Paste</span> into your Mac OS Terminal or Linux Shell</div>
+<section class="md-cmd-block">
+<img class="copy-clip-icon" src="copy-paste-icon.png">
+<pre data-role="codeBlock" data-info="bash {.copy-clip}" class="language-bash copy-clip"><span class="token function">sudo</span> <span class="token function">install</span> awesome-package 
+</pre></section>
+<div class="md-label md-label-output">The indented code blocks show the expected <span class="md-key">Output</span> from the previous <span class="md-key">Command</span></div>
+<pre data-role="codeBlock" data-info="bash {.md-output}" class="language-bash md-output">Install of awesome-package complete
+</pre><h4 class="mume-header" id="confirm-install">Confirm Install</h4>
+
+<div class="md-label">During each command you may be asked to verify installation</div>
+<pre data-role="codeBlock" data-info="bash" class="language-bash">After this operation, 474 MB of additional disk space will be used.
+Do you want to continue? <span class="token punctuation">[</span>Y/n<span class="token punctuation">]</span>
+</pre><div class="md-label">If this happens simply hit the <span class="md-key">y</span> key once and then press the <span class="md-key">enter</span> key</div>
+<pre data-role="codeBlock" data-info="bash" class="language-bash">y
+</pre><hr>
+<h1 class="mume-header" id="updates">Updates</h1>
+
+<blockquote>
+<p>Update the Ubuntu package index by running the following commands one at a time</p>
+</blockquote>
+<div class="md-label">Get the list of available updates for installed packages</div>
+<pre data-role="codeBlock" data-info="bash {.copy-clip}" class="language-bash copy-clip"><span class="token function">sudo</span> <span class="token function">apt-get</span> update
+</pre><div class="md-label">Upgrades all installed packages</div>
+<pre data-role="codeBlock" data-info="bash {.copy-clip}" class="language-bash copy-clip"><span class="token function">sudo</span> <span class="token function">apt-get</span> upgrade
+</pre><div class="md-label">Installs new packages and security updates required by Ubuntu since your last login</div>
+<pre data-role="codeBlock" data-info="bash {.copy-clip}" class="language-bash copy-clip"><span class="token function">sudo</span> <span class="token function">apt-get</span> dist-upgrade
+</pre><div class="md-label md-pink">You can execute the previous commands every time you login to your server if you wish to keep all packages up to date</div>
+<hr>
+<h1 class="mume-header" id="installation">Installation</h1>
+
+<h3 class="mume-header" id="check-for-java">Check for Java</h3>
+
+<blockquote>
+<p>Check for any Java versions or Java-based tools that are already installed on your Ubuntu/Linux server</p>
+</blockquote>
+<div class="md-label">Verify that Java has not yet been installed</div>
 <pre data-role="codeBlock" data-info="bash {.copy-clip}" class="language-bash copy-clip">java --version
-</pre><div class="md-label  md-label-output">If JAVA is NOT installed you should see the following output</div>
+</pre><div class="md-label  md-label-output">If Java <span class="md-key">IS NOT</span> installed you should see the following output</div>
 <pre data-role="codeBlock" data-info="bash {.copy-clip .md-output}" class="language-bash copy-clip md-output">Command <span class="token string">&apos;java&apos;</span> not found, but can be installed with:
 
 <span class="token function">apt</span> <span class="token function">install</span> default-jre            
 <span class="token function">apt</span> <span class="token function">install</span> openjdk-11-jre-headless
 <span class="token function">apt</span> <span class="token function">install</span> openjdk-8-jre-headless 
-</pre><div class="md-labe">Install Default JRE</div>
-<pre data-role="codeBlock" data-info="bash {.copy-clip}" class="language-bash copy-clip"><span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> default-jre
-</pre><div class="md-label  md-label-output">You will be asked to verify installation</div>
-<pre data-role="codeBlock" data-info="bash {.copy-clip .md-output}" class="language-bash copy-clip md-output">After this operation, 474 MB of additional disk space will be used.
-Do you want to continue? <span class="token punctuation">[</span>Y/n<span class="token punctuation">]</span>
-</pre><div class="md-label">Type &quot;Yes&quot; and press the <span class="md-key">enter</span> key</div>
-<pre data-role="codeBlock" data-info="bash {.copy-clip}" class="language-bash copy-clip">Yes
-</pre><div class="md-label">Install Open JDK 11</div>
-<pre data-role="codeBlock" data-info="bash {.copy-clip}" class="language-bash copy-clip"><span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> openjdk-11-jre-headless
-</pre><div class="md-label">Install Open JDK 8</div>
-<pre data-role="codeBlock" data-info="bash {.copy-clip}" class="language-bash copy-clip"><span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> openjdk-8-jre-headless 
-</pre><div class="md-label">Check if JAVA was installed properly</div>
-<pre data-role="codeBlock" data-info="bash {.copy-clip}" class="language-bash copy-clip">java --version
-</pre><pre data-role="codeBlock" data-info="bash {.copy-clip .md-output}" class="language-bash copy-clip md-output"><span class="token comment"># Output</span>
-
-openjdk 10.0.2 2018-07-17
+</pre><div class="md-label md-label-output">If Java <span class="md-key">IS</span> installed you will see an output similar to the following</div>
+<pre data-role="codeBlock" data-info="bash {.md-output}" class="language-bash md-output">openjdk 10.0.2 2018-07-17
 OpenJDK Runtime Environment <span class="token punctuation">(</span>build 10.0.2+13-Ubuntu-1ubuntu0.18.04.4<span class="token punctuation">)</span>
 OpenJDK 64-Bit Server VM <span class="token punctuation">(</span>build 10.0.2+13-Ubuntu-1ubuntu0.18.04.4, mixed mode<span class="token punctuation">)</span>
-</pre>
+</pre><div class="md-label md-label-output md-pink">If Java <span class="md-key">IS</span> installed skip ahead to the <span class="md-key">Set JAVA_HOME</span> step</div>
+<h3 class="mume-header" id="install-the-jre">Install the JRE</h3>
+
+<blockquote>
+<p>This will install Java and the JRE (Java Runtime Environment) which will allow you to run almost all Java-based applications</p>
+</blockquote>
+<div class="md-label">Install Default JRE</div>
+<pre data-role="codeBlock" data-info="bash {.copy-clip}" class="language-bash copy-clip"><span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> default-jre
+</pre><div class="md-label">Install JRE 11</div>
+<pre data-role="codeBlock" data-info="bash {.copy-clip}" class="language-bash copy-clip"><span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> openjdk-11-jre-headless
+</pre><div class="md-label">Install JRE 8</div>
+<pre data-role="codeBlock" data-info="bash {.copy-clip}" class="language-bash copy-clip"><span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> openjdk-8-jre-headless 
+</pre><div class="md-label">Check if Java was installed properly</div>
+<pre data-role="codeBlock" data-info="bash {.copy-clip}" class="language-bash copy-clip">java --version
+</pre><div class="md-label  md-label-output">If Java is installed correctly you will see the following output</div>
+<pre data-role="codeBlock" data-info="bash {.copy-clip .md-output}" class="language-bash copy-clip md-output">openjdk 10.0.2 2018-07-17
+OpenJDK Runtime Environment <span class="token punctuation">(</span>build 10.0.2+13-Ubuntu-1ubuntu0.18.04.4<span class="token punctuation">)</span>
+OpenJDK 64-Bit Server VM <span class="token punctuation">(</span>build 10.0.2+13-Ubuntu-1ubuntu0.18.04.4, mixed mode<span class="token punctuation">)</span>
+</pre><h3 class="mume-header" id="install-jdk">Install JDK</h3>
+
+<blockquote>
+<p>This will install the JDK (Java Development Kit) which is required to compile and run specific Java-based applications not covered by the JRE</p>
+</blockquote>
+<div class="md-label">Install default JDK</div>
+<pre data-role="codeBlock" data-info="bash {.copy-clip}" class="language-bash copy-clip"><span class="token function">sudo</span> <span class="token function">apt</span> <span class="token function">install</span> default-jdk
+</pre><div class="md-label">Check if the JDK was installed properly</div>
+<pre data-role="codeBlock" data-info="bash {.copy-clip}" class="language-bash copy-clip">javac --version
+</pre><div class="md-label md-label-output">If the JDK is installed properly you will see the follwing output</div>
+<pre data-role="codeBlock" data-info="bash {.copy-clip .md-output}" class="language-bash copy-clip md-output">javac 10.0.2
+</pre><h3 class="mume-header" id="set-java_home">Set JAVA_HOME</h3>
+
+<blockquote>
+<p>Java-based applications require a <span class="md-key">JAVA_HOME</span> environment variable to know where to find the JRE and JDK executables they require to compile and run</p>
+</blockquote>
+<div class="md-label">Verify that the <span class="md-key">JAVA_HOME</span> environment variable is set</div>
+<pre data-role="codeBlock" data-info="bash {.copy-clip}" class="language-bash copy-clip"><span class="token keyword">echo</span> <span class="token variable">$JAVA_HOME</span>
+</pre><div class="md-label md-label-output">If output is empty you must set the <span class="md-key">JAVA_HOME</span> environment variable</div>
+<pre data-role="codeBlock" data-info="bash {.copy-clip .md-output}" class="language-bash copy-clip md-output"><span class="token punctuation">..</span>.
+</pre><div class="md-label">Use the Nano editor to add <span class="md-key">JAVA_HOME</span> to the <span class="md-key">environment</span> file</div>
+<pre data-role="codeBlock" data-info="bash {.copy-clip}" class="language-bash copy-clip"><span class="token function">sudo</span> <span class="token function">nano</span> /etc/environment
+</pre><div class="md-label md-label-output">The <span class="md-key">environment</span> file should look something like this</div>
+<pre data-role="codeBlock" data-info="bash {.copy-clip .md-output}" class="language-bash copy-clip md-output">PATH<span class="token operator">=</span><span class="token string">&quot;/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games&quot;</span>
+</pre><div class="md-label md-label-output mb4">Use the <span class="md-key">Down Arrow</span> key to move cursor to bottom of file</div>
+<div class="md-label md-label-output mb4">Hit the <span class="md-key">Enter</span> key once</div>
+<div class="md-label md-label-output mb4">Add the <span class="md-key">JAVA_HOME</span> environment variable</div>
+<pre data-role="codeBlock" data-info="bash {.copy-clip .md-output}" class="language-bash copy-clip md-output">PATH<span class="token operator">=</span><span class="token string">&quot;/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games&quot;</span>
+
+JAVA_HOME<span class="token operator">=</span><span class="token string">&quot;/usr/lib/jvm/java-11-openjdk-amd64/bin/&quot;</span>
+</pre><div class="md-label md-label-output mb4">Press <span class="md-key">Ctrl + X</span> to exit file</div>
+<div class="md-label md-label-output mb4">You will be asked if you want to save changes</div>
+<pre data-role="codeBlock" data-info="bash {.copy-clip .md-output}" class="language-bash copy-clip md-output">Save modified buffer?  <span class="token punctuation">(</span>Answering <span class="token string">&quot;No&quot;</span> will DISCARD changes.<span class="token punctuation">)</span>
+ Y Yes
+ N No           ^C Cancel
+</pre><div class="md-label md-label-output mb4">Press <span class="md-key">Y</span> key once</div>
+<div class="md-label md-label-output mb4">Press <span class="md-key">Enter</span> key once</div>
+<h3 class="mume-header" id="reload-environment">Reload Environment</h3>
+
+<blockquote>
+<p>Required to apply environment variable changes</p>
+</blockquote>
+<div class="md-label">Reload the <span class="md-key">environment</span> file</div>
+<pre data-role="codeBlock" data-info="bash {.copy-clip}" class="language-bash copy-clip"><span class="token function">source</span> /etc/environment
+</pre><div class="md-label">Check if JAVA_HOME is set correctly</div>
+<pre data-role="codeBlock" data-info="bash {.copy-clip}" class="language-bash copy-clip"><span class="token keyword">echo</span> <span class="token variable">$JAVA_HOME</span>
+</pre><div class="md-label">If <span class="md-key">JAVA_HOME</span> is set correctly you will see the following output</div>
+<pre data-role="codeBlock" data-info="bash {.copy-clip}" class="language-bash copy-clip">/usr/lib/jvm/java-11-openjdk-amd64/bin/
+</pre><div class="md-label">Other users will need to reload the <span class="md-key">environment</span> file or log out and log back in to run Java-based applications</div>
+<h3 class="mume-header" id="conclusion">Conclusion</h3>
+
+<blockquote>
+<p>You now have the correct versions of Java, the JRE, and the JDK installed</p>
+</blockquote>
+<div class="md-label">You now have the tools you need to install and run Java-based applications such as Elasticsearch</div>
+
       </div>
       <div class="md-sidebar-toc"><ul>
 <li><a href="#add-java-to-ubuntu-1804">Add Java to Ubuntu 18.04</a></li>
+<li><a href="#overview">Overview</a><br>
+* <a href="#commands-and-outputs">Commands and Outputs</a><br>
+* <a href="#confirm-install">Confirm Install</a></li>
+<li><a href="#updates">Updates</a></li>
+<li><a href="#installation">Installation</a><br>
+* <a href="#check-for-java">Check for Java</a><br>
+* <a href="#install-the-jre">Install the JRE</a><br>
+* <a href="#install-jdk">Install JDK</a><br>
+* <a href="#set-java_home">Set JAVA_HOME</a><br>
+* <a href="#reload-environment">Reload Environment</a><br>
+* <a href="#conclusion">Conclusion</a></li>
 </ul>
 </div>
       <a id="sidebar-toc-btn">&#x2261;</a>
